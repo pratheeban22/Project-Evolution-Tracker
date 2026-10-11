@@ -1,0 +1,230 @@
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.auth-visual {
+  flex: 1;
+  background: 
+    linear-gradient(135deg, rgba(6, 9, 16, 0.9), rgba(15, 22, 41, 0.95)),
+    url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover;
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .auth-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+  }
+}
+
+.auth-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-main);
+  opacity: 0.15;
+  mix-blend-mode: color;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 10;
+  max-width: 480px;
+}
+
+.logo-icon-large {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gradient-main);
+  margin-right: 1rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.auth-heading {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.auth-subheading {
+  font-size: 1.125rem;
+  color: rgba(240, 244, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Form Container */
+.auth-form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-form-wrapper {
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.auth-tabs {
+  display: flex;
+  position: relative;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.auth-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 1rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.auth-tab.active {
+  color: var(--text-primary);
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -2px;
+  width: 50%;
+  height: 2px;
+  background: var(--gradient-main);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-indicator.left {
+  transform: translateX(0);
+}
+
+.tab-indicator.right {
+  transform: translateX(100%);
+}
+
+.login-options, .terms-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.remember-me, .terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent-primary);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--text-muted);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.password-strength {
+  display: flex;
+  gap: 4px;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.strength-bar.fill {
+  background: var(--warning);
+}
+
+.strength-bar.fill:first-child {
+  background: var(--danger);
+}
+
+.strength-bar.fill:nth-child(3), .strength-bar.fill:nth-child(4) {
+  background: var(--success);
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.divider span {
+  padding: 0 1rem;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-icon {
+  margin-bottom: 1.5rem;
+  animation: scale-in-bounce 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes scale-in-bounce {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
